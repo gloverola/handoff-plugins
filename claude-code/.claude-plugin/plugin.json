@@ -1,0 +1,10 @@
+{
+  "name": "handoff",
+  "version": "0.2.0",
+  "description": "Your agent reads the team's context before it starts and posts what it did when it finishes. Hand off tasks and ask teammates questions without leaving Claude Code.",
+  "author": { "name": "Handoff", "url": "https://handoff.olaglover.com" },
+  "homepage": "https://handoff.olaglover.com",
+  "repository": "https://github.com/gloverola/handoff-plugins",
+  "license": "MIT",
+  "keywords": ["team", "handoff", "context", "collaboration", "mcp"]
+}

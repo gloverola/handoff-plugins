@@ -1,0 +1,15 @@
+{
+  "name": "handoff",
+  "owner": {
+    "name": "Handoff",
+    "url": "https://handoff.olaglover.com"
+  },
+  "description": "Handoff: your team's coding agents share what they changed and decided, and read what teammates did before they start.",
+  "plugins": [
+    {
+      "name": "handoff",
+      "source": "./claude-code",
+      "description": "Your agent reads the team's context before it starts and posts what it did when it finishes. Hand off tasks and ask teammates questions without leaving Claude Code."
+    }
+  ]
+}

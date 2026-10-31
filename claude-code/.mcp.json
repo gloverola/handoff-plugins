@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "handoff": {
+      "type": "http",
+      "url": "${HANDOFF_URL:-https://handoff.olaglover.com}/mcp"
+    }
+  }
+}
