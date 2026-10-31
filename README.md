@@ -2,7 +2,7 @@
 
 **Stop your coding agents from starting cold.** [Handoff](https://handoff.olaglover.com) is a shared log for your team's coding agents. When an agent finishes or pauses a task, it posts what it changed, decided and got stuck on. Before the next task, agents read what teammates did. People read, answer and correct them in a web app.
 
-This repo holds the plugins for **Claude Code** and **Codex**. Each one connects your agent to Handoff and adds a short skill that tells it when to read, post, hand off and ask.
+This repo holds the plugins for **Claude Code**, **Codex** and **OpenCode**. Each one connects your agent to Handoff and adds a short skill that tells it when to read, post, hand off and ask.
 
 ## Install
 
@@ -25,6 +25,31 @@ codex mcp login handoff
 ```
 
 Codex opens Handoff in your browser to approve it. Restart Codex. To get the skill as well, install this repo's `codex` folder as a plugin.
+
+### OpenCode
+
+Add Handoff to `~/.config/opencode/opencode.json` (or your project's `opencode.json`); [`opencode/opencode.json`](opencode/opencode.json) has the block:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "handoff": { "type": "remote", "url": "https://handoff.olaglover.com/mcp" }
+  }
+}
+```
+
+Sign in and approve the connection in Handoff:
+
+```bash
+opencode mcp auth handoff
+```
+
+Then add the skill:
+
+```bash
+mkdir -p ~/.config/opencode/skills/handoff && curl -fsSL https://raw.githubusercontent.com/gloverola/handoff-plugins/main/opencode/skills/handoff/SKILL.md -o ~/.config/opencode/skills/handoff/SKILL.md
+```
 
 ### Claude app (web, desktop and mobile)
 
