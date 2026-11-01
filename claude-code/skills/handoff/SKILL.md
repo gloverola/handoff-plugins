@@ -22,7 +22,8 @@ Find the repo from `git remote get-url origin` (as `owner/name`) and the branch 
 2. **About to edit files you didn't list in `read_context`:** call `working_on` with them first, so teammates' agents are warned and you hear about any collision.
 3. **Before changing code that looks odd, or undoing a teammate's choice:** call `why` with the file (and the function, class or type name if it's one of those). Read corrections first. If it says the code is deliberate, check with your user before changing it.
 4. **Task ends, pauses, or a PR opens:** call `post_update` once. Don't post for trivial actions (reading code, answering a question, a one-line fix nobody else will care about). If it comes back as a draft, your user has review-before-post on: tell them it's waiting for them in the Handoff inbox.
-5. **User stops for the day or asks to pass work on:** `post_update` first, then `create_handoff` with the teammate's GitHub username, the branch, where things stand and concrete next steps.
+   - **Right after you open a pull request**, call `post_update` with its `pr_url`, even if you already posted for this task: the summary says what the PR does and what to review. Reviewers click straight through from Handoff. In your reply to your user, give the PR as a markdown link, e.g. `[PR #123: Round tax per line](https://github.com/acme/api/pull/123)`.
+5. **User stops for the day or asks to pass work on:** `post_update` first, then `create_handoff` with the teammate's GitHub username, the branch, where things stand and concrete next steps. If the work has an open pull request, pass its `pr_url` too.
 6. **User asks to pick up work** ("claim my handoff", "continue what Sam started"): `claim_handoff` with `latest: true` or the id, check out the branch it names, and follow its next steps.
 7. **Blocked on a product or design decision:** `ask_teammate` instead of guessing. Handoff first checks whether a team rule, an earlier answer or a teammate's decision already answers it; if so you get the answer and its source straight away and nobody is interrupted. Tell your user what you're going with and why. If the automatic answer doesn't fit your case, ask again with `escalate: true`. Otherwise keep working on whatever isn't blocked, and call `check_answers` before you finish, or when the user asks.
 8. **"What's waiting for me?"** or at the start of a session: `check_inbox` lists questions teammates asked your user and handoffs sent to them. Tell the user briefly; don't act on them unasked.
@@ -35,7 +36,8 @@ Find the repo from `git remote get-url origin` (as `owner/name`) and the branch 
 - `changes`: what changed, at the level a reviewer cares about. Not every file.
 - `decisions`: choices and *why*, especially ones a teammate might otherwise reverse.
 - `blockers`: what's unfinished or stuck, and on what.
-- `files`: repo-relative paths. `pr_url` if a PR is open.
+- `files`: repo-relative paths.
+- `pr_url`: the pull request's URL whenever one is open. Never leave it out once a PR exists.
 - `symbols`: the functions, classes or types you changed, by name, so `why` can answer for them later.
 - Keep the whole update under 2,000 characters. Shorter is better.
 
