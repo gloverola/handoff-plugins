@@ -1,6 +1,6 @@
 {
   "name": "handoff",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "Your agent reads the team's context before it starts and posts what it did when it finishes. Hand off tasks and ask teammates questions without leaving Codex.",
   "author": {
     "name": "Handoff",
